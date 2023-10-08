@@ -40,7 +40,7 @@ def mean_squared_error_sgd(y, tx, initial_w, max_iters, gamma):
     n = len(y)
     for _ in range(max_iters):
         i = np.random.randint(0, n)
-        gradient = compute_gradient(y[i:i+1], tx[i:i+1], w)
+        gradient = compute_gradient(y[i], tx[i], w)
         w = w - gamma * gradient
     loss = compute_mse_loss(y, tx, w)
     return w, loss
